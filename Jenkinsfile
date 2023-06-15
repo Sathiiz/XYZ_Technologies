@@ -3,26 +3,18 @@ pipeline {
     tools {
         maven 'MyMaven'
     }
-    stages {
-        stage ('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/Sathiiz/XYZ_Technologies.git'
-            }
-        }
-        
-        stage ('Complie Code') {
+    stages {      
+        stage ('1.Complie Code') {
             steps {
                 sh 'mvn compile'
         }
         }
-
-        stage ('Test Code') {
+        stage ('2.Test Code') {
             steps {
                 sh 'mvn test'
         }
         }
-
-        stage ('Package Code') {
+        stage ('3.Package Code') {
             steps {
                 sh 'mvn clean package'
                 sh 'mvn clean install'
