@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    tools {
+        maven 'MyMaven'
+    }
+    stages {
+        stage ('Checkout') {
+            steps {
+                git branch: 'master', url: 'https://github.com/Sathiiz/DevOpsCodeDemo.git'
+            }
+        }
+        
+        stage ('Build Code') {
+            steps {
+                sh 'mvn clean package'
+        }
+        }
+        }
