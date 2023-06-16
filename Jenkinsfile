@@ -1,5 +1,5 @@
 pipeline {
-    agent  {label edureka }
+    agent any
     tools {
         maven 'MyMaven'
     }
@@ -21,6 +21,8 @@ pipeline {
 
         }
         stage ('3.Package Code') {
+            
+            agent  { label edureka }
             steps {
                 sh 'mvn clean package'
                 sh 'mvn clean install'
