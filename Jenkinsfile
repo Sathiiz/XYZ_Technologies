@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent java-node
     tools {
         maven 'MyMaven'
     }
