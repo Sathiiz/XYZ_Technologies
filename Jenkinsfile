@@ -1,5 +1,5 @@
 pipeline {
-    agent 'edureka'
+    agent  {label edureka }
     tools {
         maven 'MyMaven'
     }
