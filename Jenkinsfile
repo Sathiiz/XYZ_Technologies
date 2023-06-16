@@ -1,7 +1,6 @@
 pipeline {
-    agent {
-        label 'edureka'
-    }
+    buildNumber
+    agent any
     tools {
         maven 'MyMaven'
     }
@@ -15,18 +14,25 @@ pipeline {
             steps {
                 sh 'mvn test'
         }
-              post{
+            post{
             success{
                 junit 'target/surefire-reports/*.xml'
             }
         }
-
         }
         stage ('3.Package Code') {
             steps {
                 sh 'mvn clean package'
                 sh 'mvn clean install'
         }
+        }
+        stage ('4.Build and Push Docker Image') {
+            agent {
+                label 'edureka'
+            }
+            steps {
+                sh 'docker build -t sathiz/$JOB_NAME:$BUILD_NUMBER .'
+            }
         }
     }
 }
