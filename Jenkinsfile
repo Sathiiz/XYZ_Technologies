@@ -1,5 +1,5 @@
 pipeline {
-    buildNumber
+    
     agent any
     tools {
         maven 'MyMaven'
