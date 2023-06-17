@@ -1,6 +1,7 @@
 pipeline {
-    
-    agent any
+    agent {
+        label 'edureka'
+    }
     tools {
         maven 'MyMaven'
     }
@@ -27,9 +28,6 @@ pipeline {
         }
         }
         stage ('4.Build and Push Docker Image') {
-            agent {
-                label 'edureka'
-            }
             steps {
                 sh 'docker build -t sathiz/$JOB_NAME:$BUILD_NUMBER .'
             withCredentials([usernamePassword(credentialsId: 'aa052daa-7a16-4c8a-8694-5b406826bd7e', passwordVariable: 'docker_pwd', usernameVariable: 'docker_ID')]) {
