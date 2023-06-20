@@ -1,2 +1,2 @@
-# xyztechnologies code
+# xyztechnologies
 #Edureka Project II
