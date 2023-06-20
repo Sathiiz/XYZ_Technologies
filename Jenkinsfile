@@ -1,7 +1,6 @@
 pipeline {
-    agent {
-        label 'edureka'
-    }
+    agent any
+        
     tools {
         maven 'MyMaven'
     }
