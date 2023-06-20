@@ -28,8 +28,8 @@ pipeline {
         }
         stage ('4.Build and Push Docker Image') {
             steps {
-                sh 'docker build -t sathiz/$JOB_NAME:$BUILD_NUMBER .'
-            withCredentials([usernamePassword(credentialsId: 'aa052daa-7a16-4c8a-8694-5b406826bd7e', passwordVariable: 'docker_pwd', usernameVariable: 'docker_ID')]) {
+                sh 'docker build -t sathiz/$JOB_NAME:$BUILD_NUMBER .'            
+            withCredentials([usernamePassword(credentialsId: 'DockerHub', passwordVariable: 'Docker_pwd', usernameVariable: 'Docker_ID')]) {
                 sh "echo '${docker_pwd}' | docker login -u ${docker_ID} --password-stdin"
             }
                 sh 'docker push sathiz/$JOB_NAME:$BUILD_NUMBER'
