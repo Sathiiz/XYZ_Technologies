@@ -37,7 +37,7 @@ pipeline {
         }
         stage ('5. Ansible Playbook') {
             steps {
-                sh echo 'Hello'
+                sh "echo 'Hello'"
             }
         }
     }
