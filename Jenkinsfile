@@ -34,6 +34,11 @@ pipeline {
             }
                 sh 'docker push sathiz/$JOB_NAME:$BUILD_NUMBER'
             }
-        }       
+        }
+        stage ('5. Ansible Playbook') {
+            steps {
+                sh echo 'Hello'
+            }
+        }
     }
 }
