@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xyz_tech_Frontend
+spec:
+  selector:
+    matchLabels:
+      app: xyz_tech
+  template:
+    metadata:
+      labels:
+        app: xyz_tech
+    spec:
+      containers:
+      - name: xyz_tech
+        image: sathiz/$JOB_NAME:$BUILD_NUMBER 
+        resources:
+          requests:
+            memory: "32Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8088
+  replicas: 1
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: xyz_tech_Frontend
+  labels:
+    app: xyz_tech
+spec:
+  selector:
+    app: xyz_tech
+  type: NodePort
+  ports:
+  - port: 8088
+    nodePort: 31707
+    protocol: TCP
+
+

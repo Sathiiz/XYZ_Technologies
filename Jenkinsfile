@@ -37,7 +37,7 @@ pipeline {
         }
         stage ('5. Ansible Playbook') {
             steps {
-                sh "echo 'Hello'"
+                ansiblePlaybook become: true, installation: 'MyAnsible', inventory: 'hosts', playbook: 'ansible.yaml'
             }
         }
     }

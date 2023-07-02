@@ -1,0 +1,10 @@
+- hosts: webservers
+  tasks:
+  - name: Copy deployment file to k8s master
+    copy:
+      src: deployment.yaml
+      dest: /root/
+  - name: Delete existing k8s deployment objects
+    command: kubectl delete -f /root/deployment.yaml
+  - name: Create New k8s objects
+    command: kubectl apply -f /root/deployment.yaml
