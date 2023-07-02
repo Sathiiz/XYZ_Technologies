@@ -30,7 +30,7 @@ pipeline {
             steps {
                 sh 'docker build -t sathiz/$JOB_NAME:$BUILD_NUMBER .'            
             withCredentials([usernamePassword(credentialsId: 'DockerHub', passwordVariable: 'Docker_pwd', usernameVariable: 'Docker_ID')]) {
-                sh "echo '${docker_pwd}' | docker login -u ${docker_ID} --password-stdin"
+                sh "echo '${Docker_pwd}' | docker login -u ${Docker_ID} --password-stdin"
             }
                 sh 'docker push sathiz/$JOB_NAME:$BUILD_NUMBER'
             }
