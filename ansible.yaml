@@ -1,4 +1,4 @@
-- hosts: localhost
+- hosts: webservers
   tasks:
   - name: Copy deployment file to k8s master
     copy:
