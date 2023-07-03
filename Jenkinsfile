@@ -37,7 +37,7 @@ pipeline {
         }
         stage ('5. Ansible Playbook') {
             steps {
-                ansiblePlaybook credentialsId: 'jenkinsUsr_PrivateKey', disableHostKeyChecking: true, installation: 'MyAnsible', inventory: 'hosts', playbook: 'ansible.yaml'
+                ansiblePlaybook become: true, credentialsId: 'jenkinsUsr_PrivateKey', disableHostKeyChecking: true, installation: 'MyAnsible', inventory: 'hosts', playbook: 'ansible.yaml'
             }
         }
     }
