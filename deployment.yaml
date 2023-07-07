@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: xyz_tech_Frontend
+  name: xyz_tech_frontend
 spec:
   selector:
     matchLabels:
@@ -30,7 +30,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: xyz_tech_Frontend
+  name: xyz_tech_frontend
   labels:
     app: xyz_tech
 spec:
