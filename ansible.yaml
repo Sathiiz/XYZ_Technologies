@@ -4,7 +4,8 @@
     copy:
       src: deployment.yaml
       dest: /root/xyz_k8s_manifest/
-  # - name: Delete existing k8s deployment objects
-  #   command: kubectl delete -f /root/xyz_k8s_manifest/deployment.yaml
-  - name: Apply  existing k8s deployment objects
-    command: kubectl apply -f /root/xyz_k8s_manifest/deployment.yaml
+  - name: Create New k8s objects
+    command: "{{item}}"
+    with_items: 
+    - "kubectl apply -f /root/xyz_k8s_manifest/deployment.yaml"
+    - "kubectl set image deployments/xyz-tech-frontend xyz-tech=sathiz/{{JOB_NAME}}:{{BUILD_NUMBER}}"
