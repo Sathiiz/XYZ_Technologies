@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: xyz-tech
-        image: sathiz/$JOB_NAME:$BUILD_NUMBER 
+        image: sathiz/$JOB_NAME:$BUILD_NUMBER
         resources:
           requests:
             memory: "32Mi"
