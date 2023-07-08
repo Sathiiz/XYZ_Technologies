@@ -35,10 +35,12 @@ pipeline {
                 sh 'docker push sathiz/$JOB_NAME:$BUILD_NUMBER'
             }
         }
-        stage ('5. Ansible Playbook') {
+        stage ('5. Run Ansible Playbook : Deployment to Test Env') {
             steps {
                 ansiblePlaybook become: true, credentialsId: 'jenkinsUsr_PrivateKey', disableHostKeyChecking: true, installation: 'MyAnsible', inventory: 'hosts', playbook: 'ansible.yaml', extras: '-e JOB_NAME=${JOB_NAME} -e BUILD_NUMBER=${BUILD_NUMBER}'
                 // sh 'kubectl set image deployments/xyz-tech-frontend xyz-tech=sathiz/${JOB_NAME}:${BUILD_NUMBER}'
+                // sh 'sed -i "s/${JOB_NAME}/g" deployment.yaml'
+                // sh 'sed -i "s/${BUILD_NUMBER}/g" deployment.yaml'
             }
         }
     }
