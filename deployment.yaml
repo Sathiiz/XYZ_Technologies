@@ -38,7 +38,7 @@ spec:
     app: xyz-tech
   type: NodePort
   ports:
-  - port: 8088
+  - port: 8080
     nodePort: 31707
     protocol: TCP
 
