@@ -39,7 +39,7 @@ pipeline {
             steps {
                 
                 ansiblePlaybook become: true, credentialsId: 'jenkinsUsr_PrivateKey', disableHostKeyChecking: true, installation: 'MyAnsible', inventory: 'hosts', playbook: 'ansible.yaml'
-                sh 'kubectl set image deployments/xyz-tech-frontend xyz-tech=sathiz/${JOB_NAME}:${BUILD_NUMBER}'
+                // sh 'kubectl set image deployments/xyz-tech-frontend xyz-tech=sathiz/${JOB_NAME}:${BUILD_NUMBER}'
             }
         }
     }
