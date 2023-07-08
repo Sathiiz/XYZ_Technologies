@@ -5,14 +5,14 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: xyz_tech
+      app: xyz-tech
   template:
     metadata:
       labels:
-        app: xyz_tech
+        app: xyz-tech
     spec:
       containers:
-      - name: xyz_tech
+      - name: xyz-tech
         image: sathiz/$JOB_NAME:$BUILD_NUMBER 
         resources:
           requests:
@@ -32,10 +32,10 @@ kind: Service
 metadata:
   name: xyz-tech-frontend
   labels:
-    app: xyz_tech
+    app: xyz-tech
 spec:
   selector:
-    app: xyz_tech
+    app: xyz-tech
   type: NodePort
   ports:
   - port: 8088
