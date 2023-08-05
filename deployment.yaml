@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: xyz-tech-frontend
+  namespace: xyz-tech
 spec:
   selector:
     matchLabels:
@@ -30,7 +31,8 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: xyz-tech-frontend
+  name: xyz-tech-service
+  namespace: xyz-tech  
   labels:
     app: xyz-tech
 spec:
@@ -48,6 +50,7 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: xyz-tech-hpa
+  namespace: xyz-tech
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
