@@ -8,4 +8,4 @@
     command: "{{item}}"
     with_items: 
     - "kubectl apply -f /root/xyz_k8s_manifest/deployment.yaml"
-    - "kubectl set image deployments/xyz-tech-frontend xyz-tech=sathiz/{{JOB_NAME}}:{{BUILD_NUMBER}}"
+    - "kubectl set image deployments/xyz-tech-frontend xyz-tech=sathiz/{{JOB_NAME}}:{{BUILD_NUMBER}} -n xyz-tech"
